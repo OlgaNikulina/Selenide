@@ -2,6 +2,7 @@ package netology.ru.selenide;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -16,19 +17,15 @@ public class RegistrationTest {
     private LocalDate date = LocalDate.of(2020, 5, 02);
     private LocalDate localDate;
 
-    @BeforeEach
-    void setUp() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
-        localDate = date.plusDays(3);
-        LocalDate date = LocalDate.parse(localDate, formatter);
-    }
-
     @Test
     void shouldRegister() {
-
         open("http://localhost:7777");
         $("[placeholder= 'Город']").setValue("Санкт-Петербург").click();
-        $("[type='date']").setValue(localDate);
+        $("[type='date']").sendKeys("Ctrl + A", "delete");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
+        localDate = date.plusDays(3);
+        String futureDate= formatter.format(localDate);
+        $("[type='date']").setValue(futureDate);
         $("[name='name']").setValue("Василий Шукшин");
         $("[name='phone']").setValue("+79123456789");
         $("span[class='checkbox__text']").click();
