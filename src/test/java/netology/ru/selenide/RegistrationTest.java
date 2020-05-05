@@ -1,9 +1,6 @@
 package netology.ru.selenide;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -22,7 +19,7 @@ public class RegistrationTest {
         open("http://localhost:7777");
         $("[placeholder= 'Город']").setValue("Санкт-Петербург").click();
         $("[type='date']").sendKeys("Ctrl + A", "delete");
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         localDate = date.plusDays(3);
         String futureDate= formatter.format(localDate);
         $("[type='date']").setValue(futureDate);
