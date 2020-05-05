@@ -1,6 +1,11 @@
 package netology.ru.selenide;
 
+import com.sun.tools.javac.comp.Enter;
+import javafx.scene.control.Tab;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.Keys;
+
+import java.security.Key;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -17,11 +22,13 @@ public class RegistrationTest {
     @Test
     void shouldRegister() {
         open("http://localhost:7777");
-        $("[placeholder= 'Город']").setValue("Санкт-Петербург").click();
-        $("[type='date']").sendKeys("Ctrl + A", "delete");
+        $("[placeholder= 'Город']").setValue("Санкт-Петербург");
+        $("span.menu-item__control").click();
+        $("[type='date']").sendKeys(Keys.CONTROL +"a");
+        $("[type='date']").sendKeys(Keys.DELETE);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         localDate = date.plusDays(3);
-        String futureDate= formatter.format(localDate);
+        String futureDate = formatter.format(localDate);
         $("[type='date']").setValue(futureDate);
         $("[name='name']").setValue("Василий Шукшин");
         $("[name='phone']").setValue("+79123456789");
