@@ -9,7 +9,7 @@ branches:
 build: off
 
 install:
-  - java -jar ./artifacts/app-card-delivery.jar &
+  - java -jar C:\Users\Pepper\IdeaProjects\Selenide\artifacts\app-card-delivery.jar &
 
 build_script:
   - ./gradlew test --info "-Dselenide.headless=true"
