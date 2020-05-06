@@ -17,7 +17,7 @@ public class RegistrationTest {
     @Test
     void shouldRegister() {
         open("http://localhost:7777");
-        $("[placeholder= 'Город']").setValue("Санкт-Петербург");
+        $("[placeholder='Город']").setValue("Санкт-Петербург");
         $("span.menu-item__control").click();
         $("[placeholder='Дата встречи']").sendKeys(Keys.CONTROL +"a");
         $("[placeholder='Дата встречи']").sendKeys(Keys.DELETE);
