@@ -1,16 +1,12 @@
 package netology.ru.selenide;
 
-import com.sun.tools.javac.comp.Enter;
-import javafx.scene.control.Tab;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
 
-import java.security.Key;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationTest {
